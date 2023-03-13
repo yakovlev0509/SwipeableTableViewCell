@@ -86,13 +86,13 @@ open class SwipeableTableViewCell: UITableViewCell, UIScrollViewDelegate {
             layoutIfNeeded()
         }
     }
-    var additionalTopPadding: CGFloat = 0 {
+    open var additionalTopPadding: CGFloat = 0 {
         didSet {
             clipViewTopOffset.constant = additionalTopPadding
             layoutIfNeeded()
         }
     }
-    var additionalBottomPadding: CGFloat = 0 {
+    open var additionalBottomPadding: CGFloat = 0 {
         didSet {
             clipViewBottomOffset.constant = -additionalBottomPadding
             layoutIfNeeded()
