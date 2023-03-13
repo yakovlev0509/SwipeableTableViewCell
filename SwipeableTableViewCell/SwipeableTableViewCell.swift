@@ -6,6 +6,7 @@
 //  Copyright © 2015年 Teambition. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 let kAccessoryTrailingSpace: CGFloat = 15
@@ -554,3 +555,4 @@ public extension UITableView {
         return false
     }
 }
+#endif

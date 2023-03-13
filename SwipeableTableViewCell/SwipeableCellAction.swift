@@ -6,6 +6,7 @@
 //  Copyright © 2015年 Teambition. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 let kSwipeableCellActionDefaultWidth: CGFloat = 90
@@ -28,3 +29,4 @@ public struct SwipeableCellAction {
         self.action = action
     }
 }
+#endif

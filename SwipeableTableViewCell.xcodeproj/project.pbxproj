@@ -14,7 +14,6 @@
 
 /* Begin PBXFileReference section */
 		D3C6AD581C1FBE9600580522 /* SwipeableTableViewCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeableTableViewCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3C6AD5D1C1FBE9600580522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3C6AD871C1FC19400580522 /* SwipeableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableTableViewCell.swift; sourceTree = "<group>"; };
 		D3C6AD8A1C1FCC0400580522 /* SwipeableCellAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableCellAction.swift; sourceTree = "<group>"; };
 		D3C6AD8C1C1FE24900580522 /* SwipeableCellActionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableCellActionsView.swift; sourceTree = "<group>"; };
@@ -53,17 +52,8 @@
 				D3C6AD8A1C1FCC0400580522 /* SwipeableCellAction.swift */,
 				D3C6AD8C1C1FE24900580522 /* SwipeableCellActionsView.swift */,
 				D3C6AD871C1FC19400580522 /* SwipeableTableViewCell.swift */,
-				D3C6AD891C1FC1F900580522 /* Supporting Files */,
 			);
 			path = SwipeableTableViewCell;
-			sourceTree = "<group>";
-		};
-		D3C6AD891C1FC1F900580522 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D3C6AD5D1C1FBE9600580522 /* Info.plist */,
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

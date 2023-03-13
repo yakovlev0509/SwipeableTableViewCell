@@ -6,6 +6,7 @@
 //  Copyright © 2015年 Teambition. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 let kActionItemViewTag = 1000
@@ -156,3 +157,4 @@ class SwipeableCellActionsView: UIView {
         actionItemViewBackgroundColors.removeAll()
     }
 }
+#endif
