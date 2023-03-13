@@ -3,14 +3,27 @@ SwipeableTableViewCell is a quite easy-to-use UITableViewCell subclass which all
 
 ![Example](Gif/SwipeableTableViewCellExample.gif "SwipeableTableViewCellExample")
 
-## How To Get Started
-### Carthage
+## Installation  
+
+### Swift Package Manager  
+Instructions for [Swift Package Manager](https://swift.org/package-manager/) support can be
+found at [SwiftPackageManager](SwiftPackageManager.md) Markdown file.
+
+### Cocoapods  
+
+Specify "SwipeableTableViewCell" in your ```Podfile```:
+```
+pod 'SwipeableTableViewCell', :git => 'https://github.com/yakovlev0509/SwipeableTableViewCell'
+```
+
+### Carthage  
 Specify "SwipeableTableViewCell" in your ```Cartfile```:
 ```ogdl 
 github "teambition/SwipeableTableViewCell"
 ```
 
-### Usage
+## Usage
+
 #### 1. TableViewController
 Import "SwipeableTableViewCell":
 ```swift
