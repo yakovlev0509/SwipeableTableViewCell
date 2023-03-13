@@ -10,6 +10,7 @@ import UIKit
 
 let kSwipeableCellActionDefaultWidth: CGFloat = 90
 let kSwipeableCellActionDefaultVerticalSpace: CGFloat = 6
+let kSwipeableCellActionDefaultCornerRadius: CGFloat = 0
 
 public struct SwipeableCellAction {
     public var title: NSAttributedString?
@@ -18,6 +19,7 @@ public struct SwipeableCellAction {
     public var action: () -> ()
     public var width: CGFloat = kSwipeableCellActionDefaultWidth
     public var verticalSpace: CGFloat = kSwipeableCellActionDefaultVerticalSpace
+    public var cornerRadius: CGFloat = kSwipeableCellActionDefaultCornerRadius
 
     public init(title: NSAttributedString?, image: UIImage?, backgroundColor: UIColor, action: @escaping () -> ()) {
         self.title = title

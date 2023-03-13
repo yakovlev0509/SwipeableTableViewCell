@@ -15,6 +15,7 @@ class ActionItemView: UIView {
     fileprivate(set) var image: UIImage?
     fileprivate(set) var width: CGFloat = 0
     fileprivate(set) var verticalSpace: CGFloat = 0
+    fileprivate(set) var cornerRadius: CGFloat = 0
     fileprivate(set) var index = 0
     fileprivate(set) var action: (()-> ())!
 
@@ -45,8 +46,11 @@ class ActionItemView: UIView {
         self.image = action.image
         self.width = action.width
         self.verticalSpace = action.verticalSpace
+        self.cornerRadius = action.cornerRadius
         self.index = index
         self.action = action.action
+        
+        self.layer.cornerRadius = cornerRadius
  
         isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ActionItemView.didTapActionItemView(_:)))

@@ -17,7 +17,7 @@ public enum SwipeableCellState {
     case swiped
 }
 
-public protocol SwipeableTableViewCellDelegate: class {
+public protocol SwipeableTableViewCellDelegate: AnyObject {
     func swipeableCell(_ cell: SwipeableTableViewCell, isScrollingToState state: SwipeableCellState)
     func swipeableCellSwipeEnabled(_ cell: SwipeableTableViewCell) -> Bool
     func allowMultipleCellsSwipedSimultaneously() -> Bool
@@ -85,6 +85,18 @@ open class SwipeableTableViewCell: UITableViewCell, UIScrollViewDelegate {
             layoutIfNeeded()
         }
     }
+    var additionalTopPadding: CGFloat = 0 {
+        didSet {
+            clipViewTopOffset.constant = additionalTopPadding
+            layoutIfNeeded()
+        }
+    }
+    var additionalBottomPadding: CGFloat = 0 {
+        didSet {
+            clipViewBottomOffset.constant = -additionalBottomPadding
+            layoutIfNeeded()
+        }
+    }
     open fileprivate(set) var containerView: UIView!
     open fileprivate(set) lazy var scrollView: SwipeableCellScrollView = {
         let scrollView = SwipeableCellScrollView()
@@ -120,6 +132,8 @@ open class SwipeableTableViewCell: UITableViewCell, UIScrollViewDelegate {
         }()
     fileprivate var clipViewConstraint = NSLayoutConstraint()
     fileprivate var trainingOffset = NSLayoutConstraint()
+    fileprivate var clipViewTopOffset = NSLayoutConstraint()
+    fileprivate var clipViewBottomOffset = NSLayoutConstraint()
     fileprivate var isLayoutUpdating = false
 
     // MARK: - Life cycle
@@ -355,8 +369,10 @@ open class SwipeableTableViewCell: UITableViewCell, UIScrollViewDelegate {
         clipViewConstraint = NSLayoutConstraint(item: clipView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
         clipViewConstraint.priority = .defaultHigh
         trainingOffset = NSLayoutConstraint(item: clipView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
-        addConstraint(NSLayoutConstraint(item: clipView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: clipView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+        clipViewTopOffset = NSLayoutConstraint(item: clipView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+        addConstraint(clipViewTopOffset)
+        clipViewBottomOffset = NSLayoutConstraint(item: clipView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+        addConstraint(clipViewBottomOffset)
         addConstraint(trainingOffset)
         addConstraint(clipViewConstraint)
 
@@ -369,11 +385,7 @@ open class SwipeableTableViewCell: UITableViewCell, UIScrollViewDelegate {
         if isSelected || isHighlighted || state == .closed {
             containerView.backgroundColor = .clear
         } else {
-            if backgroundColor == .clear || backgroundColor == nil {
-                containerView.backgroundColor = .white
-            } else {
-                containerView.backgroundColor = backgroundColor
-            }
+            containerView.backgroundColor = backgroundColor
         }
     }
 
